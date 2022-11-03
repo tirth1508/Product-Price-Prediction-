@@ -1,0 +1,266 @@
+#input values from user
+print("Choose product type from following options:\n 1. Clothing \n 2. Electronics \n 3. Wearable Accesories \n 4. Household Items \n 5. Food Items \n 6. Medicines \n 7. Furniture \n 8. Beauty Products ")
+product_type_1 = int(input("Enter your number of choice of product type.\n"))
+cp_wo_logistics = float(input("Enter cost price of your product without logistics cost.\n"))
+logistics_cost = float(input("Enter logistics cost of your product.\n"))
+dem = int(input("Enter rate of demand of your product (1-10).\n"))
+comp = int(input("Enter rate of competition of your product (1-10).\n"))
+
+
+#defining deman function where margin+0.1% of demand rate is new margin
+def demand(margin, dem):
+  if dem in range(1,6):
+    margin = margin - (1/dem)
+    return margin
+  elif dem in range(6,11):
+    margin += dem/500
+    return margin
+  else:
+    print("Please enter valid demand rate.")
+
+#defining competition rate function
+def competition(comp):
+  if comp in range(5,11):
+    avg_sp=int(input("Please enter current avg. selling price of you product in market."))
+    return avg_sp
+  else:
+    return 0
+#definming fucntion to check the selling price given by the vendor
+def checkprice(a,b,c,d,e):
+  avg_sp=competition(e)
+  cust_sp = int(input("Enter the selling price you have decided:"))
+  if a == 1:
+    margin = 0.5
+    margin = demand(margin,c)
+    selling_price = float(b) + (float(b)*margin) + float(d)
+    if avg_sp!=0:
+      if selling_price>avg_sp:
+        selling_price = avg_sp - (selling_price*0.001)
+        margin = ((selling_price-b-d)/b)
+      else:
+        selling_price = selling_price
+    if 0.9*selling_price <= cust_sp <= 1.1*selling_price:
+      print("Valid Price!!")
+    else:
+      print("Should be between",0.9*selling_price,"and",1.1*selling_price)
+    print("\nYour margin would be:",margin*100,"%")
+  elif a == 2:
+    margin = 0.43
+    margin = demand(margin,c)
+    selling_price = float(b) + (float(b)*margin) + float(d)
+    if avg_sp!=0:
+      if selling_price>avg_sp:
+        selling_price = avg_sp - (selling_price*0.001)
+        margin = ((selling_price-b-d)/b)
+      else:
+        selling_price = selling_price 
+    if 0.9*selling_price <= cust_sp <= 1.1*selling_price:
+      print("Valid Price!!")
+    else:
+      print("Should be between",0.9*selling_price,"and",1.1*selling_price)
+    print("\nYour margin would be:",margin*100,"%")
+  elif a == 3:
+    margin = 0.35
+    margin = demand(margin,c)
+    selling_price = float(b) + (float(b)*margin) + float(d) 
+    if avg_sp!=0:
+      if selling_price>avg_sp:
+        selling_price = avg_sp - (selling_price*0.001)
+        margin = ((selling_price-b-d)/b)
+      else:
+        selling_price = selling_price 
+    if 0.9*selling_price <= cust_sp <= 1.1*selling_price:
+      print("Valid Price!!")
+    else:
+      print("Should be between",0.9*selling_price,"and",1.1*selling_price)
+    print("\nYour margin would be:",margin*100,"%")
+  elif a == 4:
+    margin = 0.30
+    margin = demand(margin,c)
+    selling_price = float(b) + (float(b)*margin) + float(d) 
+    if avg_sp!=0:
+      if selling_price>avg_sp:
+        selling_price = avg_sp - (selling_price*0.001)
+        margin = ((selling_price-b-d)/b)
+      else:
+        selling_price = selling_price
+    if 0.9*selling_price <= cust_sp <= 1.1*selling_price:
+      print("Valid Price!!")
+    else:
+      print("Should be between",0.9*selling_price,"and",1.1*selling_price)
+    print("\nYour margin would be:",margin*100,"%")
+  elif a == 5:
+    margin = 0.65
+    margin = demand(margin,c)
+    selling_price = float(b) + (float(b)*margin) + float(d) 
+    if avg_sp!=0:
+      if selling_price>avg_sp:
+        selling_price = avg_sp - (selling_price*0.001)
+        margin = ((selling_price-b-d)/b)
+      else:
+        selling_price = selling_price
+    if 0.9*selling_price <= cust_sp <= 1.1*selling_price:
+      print("Valid Price!!")
+    else:
+      print("Should be between",0.9*selling_price,"and",1.1*selling_price)
+    print("\nYour margin would be:",margin*100,"%")
+  elif a == 6:
+    margin = 0.13
+    margin = demand(margin,c)
+    selling_price = float(b) + (float(b)*margin) + float(d) 
+    if avg_sp!=0:
+      if selling_price>avg_sp:
+        selling_price = avg_sp - (selling_price*0.001)
+        margin = ((selling_price-b-d)/b)
+      else:
+        selling_price = selling_price
+    if 0.9*selling_price <= cust_sp <= 1.1*selling_price:
+      print("Valid Price!!")
+    else:
+      print("Should be between",0.9*selling_price,"and",1.1*selling_price)
+    print("\nYour margin would be:",margin*100,"%")
+  elif a == 7:
+    margin = 0.55
+    margin = demand(margin,c)
+    selling_price = float(b) + (float(b)*margin) + float(d) 
+    if avg_sp!=0:
+      if selling_price>avg_sp:
+        selling_price = avg_sp - (selling_price*0.001)
+        margin = ((selling_price-b-d)/b)
+      else:
+        selling_price = selling_price
+    if 0.9*selling_price <= cust_sp <= 1.1*selling_price:
+      print("Valid Price!!")
+    else:
+      print("Should be between",0.9*selling_price,"and",1.1*selling_price)
+    print("\nYour margin would be:",margin*100,"%")
+  elif a == 8:
+    margin = 0.40
+    margin = demand(margin,c)
+    selling_price = float(b) + (float(b)*margin) + float(d) 
+    if avg_sp!=0:
+      if selling_price>avg_sp:
+        selling_price = avg_sp - (selling_price*0.001)
+        margin = ((selling_price-b-d)/b)
+      else:
+        selling_price = selling_price
+    if 0.9*selling_price <= cust_sp <= 1.1*selling_price:
+      print("Valid Price!!")
+    else:
+      print("Should be between",0.9*selling_price,"and",1.1*selling_price)
+    print("\nYour margin would be:",margin*100,"%")
+  else :
+    print("Please enter valid choice of product type:")
+
+#defining the function to predict the product price
+
+def predictprice(a,b,c,d,e):
+  avg_sp=competition(e)
+  if a == 1:
+    margin = 0.5
+    margin = demand(margin,c)
+    selling_price = float(b) + (float(b)*margin) + float(d) 
+    if avg_sp!=0:
+      if selling_price>avg_sp:
+        selling_price = avg_sp - (selling_price*0.001)
+        margin = ((selling_price-b-d)/b)
+      else:
+        selling_price = selling_price
+    print("\nYour margin would be:",margin*100,"%")
+    return selling_price
+  elif a == 2:
+    margin = 0.43
+    margin = demand(margin,c)
+    selling_price = float(b) + (float(b)*margin) + float(d) 
+    if avg_sp!=0:
+      if selling_price>avg_sp:
+        selling_price = avg_sp - (selling_price*0.001)
+        margin = ((selling_price-b-d)/b)
+      else:
+        selling_price = selling_price
+    print("\nYour margin would be:",margin*100,"%")
+    return selling_price
+  elif a == 3:
+    margin = 0.35
+    margin = demand(margin,c)
+    selling_price = float(b) + (float(b)*margin) + float(d) 
+    if avg_sp!=0:
+      if selling_price>avg_sp:
+        selling_price = avg_sp - (selling_price*0.001)
+        margin = ((selling_price-b-d)/b)
+      else:
+        selling_price = selling_price
+    print("\nYour margin would be:",margin*100,"%")
+    return selling_price
+  elif a == 4:
+    margin = 0.30
+    margin = demand(margin,c)
+    selling_price = float(b) + (float(b)*margin) + float(d) 
+    if avg_sp!=0:
+      if selling_price>avg_sp:
+        selling_price = avg_sp - (selling_price*0.001)
+        margin = ((selling_price-b-d)/b)
+      else:
+        selling_price = selling_price
+    print("\nYour margin would be:",margin*100,"%")
+    return selling_price
+  elif a == 5:
+    margin = 0.65
+    margin = demand(margin,c)
+    selling_price = float(b) + (float(b)*margin) + float(d) 
+    if avg_sp!=0:
+      if selling_price>avg_sp:
+        selling_price = avg_sp - (selling_price*0.001)
+        margin = ((selling_price-b-d)/b)
+      else:
+        selling_price = selling_price
+    print("\nYour margin would be:",margin*100,"%")
+    return selling_price
+  elif a == 6:
+    margin = 0.13
+    margin = demand(margin,c)
+    selling_price = float(b) + (float(b)*margin) + float(d) 
+    if avg_sp!=0:
+      if selling_price>avg_sp:
+        selling_price = avg_sp - (selling_price*0.001)
+        margin = ((selling_price-b-d)/b)
+      else:
+        selling_price = selling_price
+    print("\nYour margin would be:",margin*100,"%")
+    return selling_price
+  elif a == 7:
+    margin = 0.55
+    margin = demand(margin,c)
+    selling_price = float(b) + (float(b)*margin) + float(d) 
+    if avg_sp!=0:
+      if selling_price>avg_sp:
+        selling_price = avg_sp - (selling_price*0.001)
+        margin = ((selling_price-b-d)/b)
+      else:
+        selling_price = selling_price
+    print("\nYour margin would be:",margin*100,"%")
+    return selling_price
+  elif a == 8:
+    margin = 0.40
+    margin = demand(margin,c)
+    selling_price = float(b) + (float(b)*margin) + float(d) 
+    if avg_sp!=0:
+      if selling_price>avg_sp:
+        selling_price = avg_sp - (selling_price*0.001)
+        margin = ((selling_price-b-d)/b)
+      else:
+        selling_price = selling_price
+    print("\nYour margin would be:",margin*100,"%")
+    return selling_price
+  else :
+    print("Please enter valid choice of product type:")
+    
+#user choice to either check product price or predict it
+print("1. Check price \n2. Predict price")
+main_choice = int(input("Choose anyone of the two above options:"))
+if main_choice == 1:
+  checkprice(product_type_1,cp_wo_logistics,dem,logistics_cost,comp)
+elif main_choice == 2:
+  print("Ideal price for your product should be:",predictprice(product_type_1,cp_wo_logistics,dem,logistics_cost,comp))
+else:
+   print("Please enter valid choice.")
